@@ -1,33 +1,29 @@
+# 🛍️ HiTeckKart — Full Stack E-commerce Web Application
 
-
-# 🛍️ Full Stack E-commerce Web Application
-
-A full-stack **E-commerce application** using **Spring Boot** (Java) for the backend and **ReactJS with Vite** for the frontend. This application demonstrates the integration of RESTful APIs with a modern frontend stack, ideal for learning and demonstration purposes.
+A full-stack e-commerce application built with **Spring Boot (Java)** on the backend and **React + Vite** on the frontend. Supports browsing products, adding to cart, checkout, category filtering, and a dark/light theme toggle.
 
 ---
 
 ## 📁 Project Structure
 
 ```
-SpringBoot-Reactjs-Ecommerce-main/
+ecommerce-fullstack-app/
 ├── Ecommerce-Backend/       # Spring Boot REST API backend
 ├── Ecommerce-Frontend/      # React + Vite frontend application
 ```
 
 ---
 
-## 🧩 Backend - Spring Boot
+## 🧩 Backend — Spring Boot
 
 ### 🔧 Technologies Used
-
-* Java 17+
-* Spring Boot
-* Spring Data JPA
-* MySQL (can be adapted)
-* Maven
+- Java 21
+- Spring Boot
+- Spring Data JPA
+- **H2 in-memory database** (no external DB setup required)
+- Maven
 
 ### 📂 Backend Directory Structure
-
 ```
 Ecommerce-Backend/
 ├── controller/      # REST endpoints
@@ -37,99 +33,109 @@ Ecommerce-Backend/
 ├── resources/
 │   ├── application.properties
 │   └── data1.sql
-└── pom.xml          # Maven build config
+└── pom.xml
 ```
 
-### ⚙️ Setup Instructions
+### ⚙️ Setup & Run
 
-1. **Database Setup:**
+No external database setup needed — H2 runs in-memory and resets on restart.
 
-   * Create a MySQL database, e.g., `ecomdb`.
-   * Update `application.properties`:
+```bash
+cd Ecommerce-Backend
+mvn spring-boot:run
+```
 
-     ```properties
-     spring.datasource.url=jdbc:mysql://localhost:3306/ecomdb
-     spring.datasource.username=root
-     spring.datasource.password=yourpassword
-     spring.jpa.hibernate.ddl-auto=update
-     ```
+The backend starts on **http://localhost:8080**.
 
-2. **Run the App:**
+### 📡 Key REST API Endpoints
 
-   ```bash
-   cd Ecommerce-Backend
-   mvn spring-boot:run
-   ```
+| Method | Endpoint                          | Description                  |
+|--------|------------------------------------|-------------------------------|
+| GET    | `/api/products`                   | Fetch all products            |
+| GET    | `/api/product/{id}`               | Get a single product by ID    |
+| GET    | `/api/product/{id}/image`         | Fetch a product's image       |
+| POST   | `/api/product`                    | Add a new product             |
+| PUT    | `/api/product/{id}`                | Update an existing product    |
+| DELETE | `/api/product/{id}`                | Delete a product              |
 
-3. **Data Initialization:**
-
-   On first run, `data1.sql` inserts seed product data into your DB.
-
-### 📡 REST API Endpoints
-
-| Method | Endpoint         | Description        |
-| ------ | ---------------- | ------------------ |
-| GET    | `/products`      | Fetch all products |
-| GET    | `/products/{id}` | Get product by ID  |
-| POST   | `/products`      | Add new product    |
-| PUT    | `/products/{id}` | Update product     |
-| DELETE | `/products/{id}` | Delete product     |
+*(Adjust the table above to match your exact `@RequestMapping` paths in `ProductController.java`.)*
 
 ---
 
-## 💻 Frontend - React + Vite
+## 💻 Frontend — React + Vite
 
 ### 🔧 Technologies Used
-
-* ReactJS
-* Vite (bundler)
-* Axios (API calls)
-* Bootstrap (UI)
-* JavaScript (ES6+)
+- React
+- Vite
+- Axios (API calls)
+- Bootstrap
+- React Router
 
 ### 📂 Frontend Directory Structure
-
 ```
 Ecommerce-Frontend/
-├── public/
 ├── src/
-│   ├── components/      # Reusable components
-│   ├── pages/           # Page-level components
-│   ├── App.jsx          # App layout
-│   └── main.jsx         # Entry point
+│   ├── components/      # Navbar, Home, Product, Cart, AddProduct, UpdateProduct, CheckoutPopup
+│   ├── Context/         # Global app state (cart, product data)
+│   ├── App.jsx
+│   └── main.jsx
 ├── package.json
 └── vite.config.js
 ```
 
-### ▶️ Getting Started
+### ▶️ Setup & Run
 
-1. **Install dependencies:**
+```bash
+cd Ecommerce-Frontend
+npm install
+npm run dev
+```
 
+The frontend runs on **http://localhost:5173** and connects to the backend at `http://localhost:8080`.
+
+---
+
+## 🧩 Features
+
+- 📦 Product listing with responsive grid layout
+- 🔍 Live search with dropdown results
+- 🗂️ Category-based filtering
+- 🛒 Add to cart, update quantity, remove items
+- 💳 Checkout flow with order summary popup
+- ➕ Add / update product forms with image upload
+- 🌗 Dark mode / light mode toggle
+- 📱 Responsive design for mobile and desktop
+
+---
+
+## 🚀 Getting Started (Both Servers)
+
+1. Start the backend first (port `8080`):
+   ```bash
+   cd Ecommerce-Backend
+   mvn spring-boot:run
+   ```
+2. Then start the frontend (port `5173`):
    ```bash
    cd Ecommerce-Frontend
    npm install
-   ```
-
-2. **Run the app:**
-
-   ```bash
    npm run dev
    ```
+3. Open **http://localhost:5173** in your browser.
 
-   This will launch the frontend at `http://localhost:5173`.
+---
 
-3. **Connect to Backend:**
+## 🛠️ Tech Stack Summary
 
-   Update the backend URL in API service files (usually inside `src/` or `src/services/`) if needed:
+**Backend:** Java, Spring Boot, Spring Data JPA, H2 Database, Maven
+**Frontend:** React, Vite, Axios, Bootstrap, React Router
+**Tools:** IntelliJ IDEA, VS Code, Git & GitHub
 
-   ```js
-   axios.get('http://localhost:8080/products')
-   ```
+---
 
-### 🧩 Features
+## 👤 Author
 
-* Product List (from Spring Boot backend)
-* Dynamic rendering using React components
-* Fully responsive UI
-* Easy integration with further features (cart, checkout, login)
-
+**Abhishek Dahale**
+Fresher CSE Graduate | Aspiring Java Full Stack Developer
+📍 Pune, India
+GitHub: [@Abhishek-dahale](https://github.com/Abhishek-dahale)

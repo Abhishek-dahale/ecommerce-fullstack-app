@@ -1,6 +1,72 @@
-INSERT INTO product (name, desc, brand, price, category, release_date, available, quantity) VALUES
-('Tata Nexon', 'A compact SUV with excellent safety features and performance.', 'Tata Motors', 750000.00, 'Cars', '2024-01-15', true, 50),
-('Maruti Suzuki Swift', 'A popular hatchback known for its fuel efficiency and reliability.', 'Maruti Suzuki', 550000.00, 'Cars', '2024-02-01', true, 100),
-('Hyundai Creta', 'A stylish SUV with advanced features and comfortable interior.', 'Hyundai', 950000.00, 'Cars', '2024-03-01', true, 75),
-('Mahindra Thar', 'A rugged off-road SUV with a powerful engine and modern amenities.', 'Mahindra', 1200000.00, 'Cars', '2024-04-01', true, 30),
-('Honda City', 'A premium sedan with a sleek design and advanced safety features', 'Honda',1100000.00, 'Cars', '2024-05-01', true, 60);
+INSERT INTO product (name, description, brand, price, category, release_date, product_available, stock_quantity) VALUES
+-- ================= LAPTOP =================
+('ThinkPad X1 Carbon', 'A lightweight business laptop with a durable build and long battery life.', 'Lenovo', 125000.00, 'Laptop', '2024-01-10', true, 40),
+('MacBook Air M2', 'A slim, powerful laptop with Apple silicon and excellent battery efficiency.', 'Apple', 114900.00, 'Laptop', '2024-02-14', true, 25),
+('ROG Strix G15', 'A high-performance gaming laptop with a fast refresh rate display.', 'ASUS', 98999.00, 'Laptop', '2024-01-20', true, 15),
+('Inspiron 15', 'An affordable everyday laptop for work and study.', 'Dell', 55999.00, 'Laptop', '2024-03-05', true, 60),
+('Pavilion 14', 'A compact laptop with a sleek design and solid performance.', 'HP', 62999.00, 'Laptop', '2024-02-28', true, 45),
+('Galaxy Book3', 'A premium ultrabook with an AMOLED display.', 'Samsung', 89999.00, 'Laptop', '2024-04-01', true, 20),
+('Legion 5 Pro', 'A gaming laptop with high refresh rate and strong cooling.', 'Lenovo', 129999.00, 'Laptop', '2024-03-18', true, 12),
+('Zenbook 14 OLED', 'A thin and light laptop with a vibrant OLED display.', 'ASUS', 79999.00, 'Laptop', '2024-01-05', true, 30),
+('Surface Laptop 5', 'A premium Windows laptop with a sleek metal build.', 'Microsoft', 104999.00, 'Laptop', '2024-02-10', true, 18),
+('Victus 16', 'A budget gaming laptop with solid graphics performance.', 'HP', 74999.00, 'Laptop', '2024-04-12', true, 22),
+
+-- ================= HEADPHONE =================
+('WH-1000XM5', 'Industry-leading noise cancelling over-ear headphones.', 'Sony', 29990.00, 'Headphone', '2024-01-15', true, 50),
+('AirPods Max', 'Premium over-ear headphones with active noise cancellation.', 'Apple', 59900.00, 'Headphone', '2024-02-20', true, 20),
+('QuietComfort 45', 'Comfortable noise cancelling headphones for all-day wear.', 'Bose', 27990.00, 'Headphone', '2024-01-25', true, 35),
+('Momentum 4', 'Wireless headphones with rich sound and long battery life.', 'Sennheiser', 34990.00, 'Headphone', '2024-03-01', true, 25),
+('Studio3 Wireless', 'Over-ear headphones with pure adaptive noise cancelling.', 'Beats', 19990.00, 'Headphone', '2024-02-05', true, 40),
+('Elite 85h', 'Active noise cancelling headphones with water resistance.', 'Jabra', 17990.00, 'Headphone', '2024-04-10', true, 30),
+('boAt Rockerz 550', 'Affordable wireless headphones with punchy bass.', 'boAt', 1999.00, 'Headphone', '2024-01-08', true, 100),
+('Cloud Alpha', 'Gaming headset with clear audio and comfortable padding.', 'HyperX', 7999.00, 'Headphone', '2024-03-15', true, 45),
+('Freebuds Studio', 'Over-ear wireless headphones with adaptive noise cancellation.', 'Huawei', 24990.00, 'Headphone', '2024-02-18', true, 20),
+('Backbeat Go 810', 'Sports headphones designed for active lifestyles.', 'Plantronics', 5999.00, 'Headphone', '2024-04-05', true, 50),
+
+-- ================= MOBILE =================
+('iPhone 15', 'Apple flagship smartphone with A16 chip and improved cameras.', 'Apple', 79900.00, 'Mobile', '2024-01-12', true, 30),
+('Galaxy S24', 'Samsung flagship with AI-powered features and a stunning display.', 'Samsung', 74999.00, 'Mobile', '2024-02-01', true, 25),
+('OnePlus 12', 'Flagship performance with fast charging and smooth display.', 'OnePlus', 64999.00, 'Mobile', '2024-01-28', true, 35),
+('Pixel 8', 'Google flagship with excellent camera and clean Android experience.', 'Google', 59999.00, 'Mobile', '2024-03-10', true, 20),
+('Redmi Note 13 Pro', 'A value-for-money smartphone with a great camera setup.', 'Xiaomi', 24999.00, 'Mobile', '2024-02-15', true, 60),
+('Nothing Phone 2', 'A unique design smartphone with a distinctive interface.', 'Nothing', 39999.00, 'Mobile', '2024-04-02', true, 22),
+('iQOO 12', 'A performance-focused smartphone with fast charging.', 'iQOO', 52999.00, 'Mobile', '2024-01-20', true, 28),
+('Moto Edge 40', 'A stylish mid-range smartphone with a curved display.', 'Motorola', 29999.00, 'Mobile', '2024-03-25', true, 40),
+('Realme 12 Pro', 'A camera-centric smartphone at an accessible price.', 'Realme', 27999.00, 'Mobile', '2024-02-08', true, 45),
+('Vivo V29', 'A smartphone with strong portrait photography features.', 'Vivo', 32999.00, 'Mobile', '2024-04-14', true, 33),
+
+-- ================= ELECTRONICS =================
+('Mi Smart Band 8', 'A fitness tracker with heart rate and sleep monitoring.', 'Xiaomi', 2999.00, 'Electronics', '2024-01-05', true, 80),
+('Echo Dot 5th Gen', 'A compact smart speaker with Alexa built in.', 'Amazon', 4499.00, 'Electronics', '2024-02-10', true, 70),
+('Mi Power Bank 20000mAh', 'A high-capacity power bank with fast charging support.', 'Xiaomi', 1999.00, 'Electronics', '2024-01-18', true, 100),
+('Apple Watch SE', 'A smartwatch with fitness tracking and notifications.', 'Apple', 29900.00, 'Electronics', '2024-03-01', true, 25),
+('Fire TV Stick 4K', 'A streaming device with 4K support and voice remote.', 'Amazon', 5999.00, 'Electronics', '2024-02-22', true, 50),
+('Google Nest Mini', 'A smart speaker with Google Assistant built in.', 'Google', 4999.00, 'Electronics', '2024-04-05', true, 45),
+('Canon EOS R50', 'A mirrorless camera ideal for beginners and content creators.', 'Canon', 74999.00, 'Electronics', '2024-01-30', true, 12),
+('JBL Flip 6', 'A portable waterproof Bluetooth speaker with strong bass.', 'JBL', 9999.00, 'Electronics', '2024-03-12', true, 40),
+('Philips Air Fryer', 'A kitchen appliance for healthier oil-free cooking.', 'Philips', 8999.00, 'Electronics', '2024-02-05', true, 35),
+('TP-Link Wifi Router', 'A dual-band router for fast and stable home internet.', 'TP-Link', 2499.00, 'Electronics', '2024-04-18', true, 60),
+
+-- ================= TOYS =================
+('Lego Classic Bricks Set', 'A creative building block set for all ages.', 'Lego', 2499.00, 'Toys', '2024-01-10', true, 50),
+('Hot Wheels 5-Car Pack', 'A set of five collectible die-cast toy cars.', 'Hot Wheels', 799.00, 'Toys', '2024-02-15', true, 100),
+('Barbie Dreamhouse', 'A large dollhouse playset with multiple rooms.', 'Barbie', 8999.00, 'Toys', '2024-03-01', true, 20),
+('Nerf Elite Blaster', 'A foam dart blaster for active outdoor play.', 'Nerf', 1999.00, 'Toys', '2024-01-25', true, 60),
+('Rubik''s Cube', 'A classic 3x3 puzzle cube for brain training.', 'Rubik''s', 499.00, 'Toys', '2024-02-08', true, 150),
+('Remote Control Car', 'A fast RC car with rechargeable battery.', 'Hot Wheels', 1499.00, 'Toys', '2024-04-01', true, 70),
+('Monopoly Board Game', 'A classic family board game about buying and trading property.', 'Hasbro', 999.00, 'Toys', '2024-03-15', true, 90),
+('Play-Doh Fun Factory', 'A creative modeling set for kids.', 'Play-Doh', 699.00, 'Toys', '2024-02-20', true, 80),
+('Action Figure Set', 'A set of poseable superhero action figures.', 'Marvel', 1299.00, 'Toys', '2024-01-18', true, 65),
+('Puzzle 1000 Pieces', 'A challenging jigsaw puzzle for adults and teens.', 'Ravensburger', 899.00, 'Toys', '2024-04-10', true, 55),
+
+-- ================= FASHION =================
+('Puma Running Shoes', 'Lightweight running shoes with cushioned soles.', 'Puma', 3999.00, 'Fashion', '2024-01-12', true, 60),
+('Levi''s 511 Jeans', 'Slim fit denim jeans for everyday wear.', 'Levi''s', 2999.00, 'Fashion', '2024-02-05', true, 80),
+('Nike Air Max', 'Iconic sneakers with visible air cushioning.', 'Nike', 8999.00, 'Fashion', '2024-01-28', true, 40),
+('Ray-Ban Aviator', 'Classic aviator sunglasses with UV protection.', 'Ray-Ban', 7999.00, 'Fashion', '2024-03-10', true, 30),
+('Fastrack Analog Watch', 'A stylish analog watch for daily wear.', 'Fastrack', 1999.00, 'Fashion', '2024-02-15', true, 70),
+('Adidas Track Jacket', 'A classic three-stripe track jacket.', 'Adidas', 3499.00, 'Fashion', '2024-04-01', true, 50),
+('Woodland Boots', 'Durable outdoor boots built for rough terrain.', 'Woodland', 4999.00, 'Fashion', '2024-01-20', true, 35),
+('Titan Leather Wallet', 'A genuine leather wallet with multiple card slots.', 'Titan', 1499.00, 'Fashion', '2024-03-22', true, 90),
+('Van Heusen Formal Shirt', 'A crisp formal shirt suitable for office wear.', 'Van Heusen', 1799.00, 'Fashion', '2024-02-10', true, 75),
+('Skybags Backpack', 'A durable and spacious everyday backpack.', 'Skybags', 2299.00, 'Fashion', '2024-04-15', true, 65);

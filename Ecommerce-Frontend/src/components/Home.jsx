@@ -4,6 +4,19 @@ import API from "../axios";
 import AppContext from "../Context/Context";
 import unplugged from "../assets/unplugged.png"
 
+// Category-based placeholder images (used when a product has no uploaded photo)
+const categoryImageFallback = {
+  Laptop: "https://loremflickr.com/400/300/laptop",
+  Headphone: "https://loremflickr.com/400/300/headphones",
+  Mobile: "https://loremflickr.com/400/300/smartphone",
+  Electronics: "https://loremflickr.com/400/300/electronics",
+  Toys: "https://loremflickr.com/400/300/toys",
+  Fashion: "https://loremflickr.com/400/300/fashion",
+};
+
+const getFallbackImage = (category) =>
+  categoryImageFallback[category] || unplugged;
+
 const Home = ({ selectedCategory }) => {
   const { data, isError, addToCart, refreshData } = useContext(AppContext);
   const [products, setProducts] = useState([]);
@@ -34,8 +47,8 @@ const Home = ({ selectedCategory }) => {
                 product.id,
                 error
               );
-              // fall back to a real bundled image instead of a fake string path
-              return { ...product, imageUrl: unplugged };
+              // no uploaded photo for this product - show a relevant category placeholder
+              return { ...product, imageUrl: getFallbackImage(product.category) };
             }
           })
         );

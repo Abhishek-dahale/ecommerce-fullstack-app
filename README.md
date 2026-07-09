@@ -2,6 +2,12 @@
 
 A full-stack e-commerce application built with **Spring Boot (Java)** on the backend and **React + Vite** on the frontend. Supports browsing products, adding to cart, checkout, category filtering, and a dark/light theme toggle.
 
+🔗 **Live Demo:** https://ecommerce-fullstack-app-beige.vercel.app
+🔗 **Backend API:** https://ecommerce-backend-xbd6.onrender.com/api/products
+🔗 **GitHub Repo:** https://github.com/Abhishek-dahale/ecommerce-fullstack-app
+
+> ⚠️ **Note:** The backend uses an H2 in-memory database and runs on Render's free tier, which spins down after periods of inactivity. The first request after idle time may take 30-50 seconds to respond while the server wakes up, and product data resets whenever the backend restarts. Add a test product via "Add Product" if the home page shows no items.
+
 ---
 
 ## 📁 Project Structure
@@ -22,6 +28,7 @@ ecommerce-fullstack-app/
 - Spring Data JPA
 - **H2 in-memory database** (no external DB setup required)
 - Maven
+- Docker (containerized for deployment)
 
 ### 📂 Backend Directory Structure
 ```
@@ -33,10 +40,11 @@ Ecommerce-Backend/
 ├── resources/
 │   ├── application.properties
 │   └── data1.sql
+├── Dockerfile
 └── pom.xml
 ```
 
-### ⚙️ Setup & Run
+### ⚙️ Run Locally
 
 No external database setup needed — H2 runs in-memory and resets on restart.
 
@@ -46,6 +54,10 @@ mvn spring-boot:run
 ```
 
 The backend starts on **http://localhost:8080**.
+
+### ☁️ Deployment
+
+Deployed on **Render** using a multi-stage Docker build (Maven build stage + lightweight JRE runtime stage).
 
 ### 📡 Key REST API Endpoints
 
@@ -57,8 +69,6 @@ The backend starts on **http://localhost:8080**.
 | POST   | `/api/product`                    | Add a new product             |
 | PUT    | `/api/product/{id}`                | Update an existing product    |
 | DELETE | `/api/product/{id}`                | Delete a product              |
-
-*(Adjust the table above to match your exact `@RequestMapping` paths in `ProductController.java`.)*
 
 ---
 
@@ -77,13 +87,15 @@ Ecommerce-Frontend/
 ├── src/
 │   ├── components/      # Navbar, Home, Product, Cart, AddProduct, UpdateProduct, CheckoutPopup
 │   ├── Context/         # Global app state (cart, product data)
+│   ├── axios.jsx        # Centralized API client pointing to the backend
 │   ├── App.jsx
 │   └── main.jsx
+├── vercel.json          # SPA routing config for Vercel
 ├── package.json
 └── vite.config.js
 ```
 
-### ▶️ Setup & Run
+### ▶️ Run Locally
 
 ```bash
 cd Ecommerce-Frontend
@@ -91,7 +103,11 @@ npm install
 npm run dev
 ```
 
-The frontend runs on **http://localhost:5173** and connects to the backend at `http://localhost:8080`.
+The frontend runs on **http://localhost:5173**.
+
+### ☁️ Deployment
+
+Deployed on **Vercel**, auto-deploying from the `main` branch on every push.
 
 ---
 
@@ -105,10 +121,11 @@ The frontend runs on **http://localhost:5173** and connects to the backend at `h
 - ➕ Add / update product forms with image upload
 - 🌗 Dark mode / light mode toggle
 - 📱 Responsive design for mobile and desktop
+- 🚀 Fully deployed full-stack app (Vercel + Render), with CI/CD via GitHub — every push auto-redeploys both services
 
 ---
 
-## 🚀 Getting Started (Both Servers)
+## 🚀 Getting Started Locally (Both Servers)
 
 1. Start the backend first (port `8080`):
    ```bash
@@ -127,8 +144,9 @@ The frontend runs on **http://localhost:5173** and connects to the backend at `h
 
 ## 🛠️ Tech Stack Summary
 
-**Backend:** Java, Spring Boot, Spring Data JPA, H2 Database, Maven
+**Backend:** Java, Spring Boot, Spring Data JPA, H2 Database, Maven, Docker
 **Frontend:** React, Vite, Axios, Bootstrap, React Router
+**Deployment:** Render (backend), Vercel (frontend)
 **Tools:** IntelliJ IDEA, VS Code, Git & GitHub
 
 ---

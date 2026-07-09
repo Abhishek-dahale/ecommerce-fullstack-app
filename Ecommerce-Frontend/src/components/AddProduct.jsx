@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import API from "../axios";
 
 const AddProduct = () => {
   const [product, setProduct] = useState({
@@ -21,7 +21,6 @@ const AddProduct = () => {
 
   const handleImageChange = (e) => {
     setImage(e.target.files[0]);
-    // setProduct({...product, image: e.target.files[0]})
   };
 
   const submitHandler = (event) => {
@@ -33,8 +32,8 @@ const AddProduct = () => {
       new Blob([JSON.stringify(product)], { type: "application/json" })
     );
 
-    axios
-      .post("http://localhost:8080/api/product", formData, {
+    API
+      .post("/product", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -141,7 +140,6 @@ const AddProduct = () => {
             onChange={handleInputChange}
             value={product.stockQuantity}
             name="stockQuantity"
-            // value={`${stockAlert}/${stockQuantity}`}
             id="stockQuantity"
           />
         </div>
@@ -158,8 +156,6 @@ const AddProduct = () => {
             id="releaseDate"
           />
         </div>
-        {/* <input className='image-control' type="file" name='file' onChange={(e) => setProduct({...product, image: e.target.files[0]})} />
-    <button className="btn btn-primary" >Add Photo</button>  */}
         <div className="col-md-4">
           <label className="form-label">
             <h6>Image</h6>
@@ -189,7 +185,6 @@ const AddProduct = () => {
           <button
             type="submit"
             className="btn btn-primary"
-            // onClick={submitHandler}
           >
             Submit
           </button>
